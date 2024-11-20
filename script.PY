@@ -9,8 +9,8 @@ def subtractXcoinsOfTotal (subtractedCoins):
 while True:
       try:
             numberOfPlayer = int(input("Enter the total number of players."))
-            if numberOfPlayer < 2:
-                  print ("A minimum of 2 player is needed.")
+            if numberOfPlayer < 2 or numberOfPlayer > 4:
+                  print ("A minimum of 2 players is required, with a maximum limit of 4 players.")
             else:
                   break
       except ValueError:
