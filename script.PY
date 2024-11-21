@@ -20,14 +20,19 @@ while totalOfCoins > 0 :
      try:
             print(f"There is a total of {totalOfCoins} coins.")
             print(f"It's player {current_player} turn.")
-            subtractedCoins = int(input("Choose a number of coins to subtract (between 1 & 6) "))
-            if subtractedCoins < 1 or subtractedCoins > 6:
-                 print("Please enter a valid number between 1 and 6.")
-            elif subtractedCoins > totalOfCoins:
-                 print("You cannot subtract more coins than the total remaining.")
-            else:
-                   subtractXcoinsOfTotal(subtractedCoins)
-                   print(f"There are {totalOfCoins} coins left.")
+            while True:
+                  try:
+                      subtractedCoins = int(input("Choose a number of coins to subtract (between 1 & 6) "))
+                      if subtractedCoins < 1 or subtractedCoins > 6:
+                          print("Please enter a valid number between 1 and 6.")
+                      elif subtractedCoins > totalOfCoins:
+                          print("You cannot subtract more coins than the total remaining.")
+                      else:
+                          break
+                  except ValueError:
+                      print("Enter a valid number.")  
+            subtractXcoinsOfTotal(subtractedCoins)       
+            print(f"There are {totalOfCoins} coins left.")       
             if totalOfCoins == 0:
                    print(f"Player {current_player} win, all coins have been collected.")
                    break
